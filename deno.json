@@ -4,7 +4,7 @@
     "hono": "jsr:@hono/hono@^4.8.10",
     "tailwindcss": "npm:tailwindcss@^4.1.11"
   },
-  "nodeModulesDir": true,
+  "nodeModulesDir": "auto",
   "tasks": {
     "install": "deno install --allow-scripts",
     "tailwind:watch": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css --watch",
