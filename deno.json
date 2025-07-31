@@ -1,10 +1,16 @@
 {
   "imports": {
-    "hono": "jsr:@hono/hono@^4.8.10"
+    "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.11",
+    "hono": "jsr:@hono/hono@^4.8.10",
+    "tailwindcss": "npm:tailwindcss@^4.1.11"
   },
+  "nodeModulesDir": "auto",
   "tasks": {
-    "dev": "deno run --allow-net --watch main.ts",
-    "start": "deno run --allow-net main.ts"
+    "install": "deno install --allow-scripts",
+    "tailwind:watch": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css --watch",
+    "tailwind": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css",
+    "dev": "deno run --allow-net --allow-read --watch main.tsx",
+    "start": "deno run --allow-net --allow-read main.tsx"
   },
   "compilerOptions": {
     "jsx": "precompile",
