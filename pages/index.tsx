@@ -20,45 +20,12 @@ const contents: Content[] = [
     createdAt: new Date().toISOString(),
     hastags: ["test", "test2"],
   },
-  {
-    title: "simple caching strategies",
-    content:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    createdAt: new Date().toISOString(),
-    hastags: ["test", "test2"],
-  },
-  {
-    title: "simple caching strategies",
-    content:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    createdAt: new Date().toISOString(),
-    hastags: ["test", "test2"],
-  },
-  {
-    title: "simple caching strategies",
-    content:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    createdAt: new Date().toISOString(),
-    hastags: ["test", "test2"],
-  },
 ];
 
 export const IndexPage: FC = (_props) => {
   return (
     <AppLayout>
-      <p class="py-8 bg-base text-base-content text-justify">
+      <p class="py-8 bg-base text-base-content">
         hi, and welcome to <b>billy's directory</b>. this is where i share all
         my articles on engineering tips, my experiments, and even some random
         thoughts. i hope you find something you like. ッ
@@ -68,7 +35,7 @@ export const IndexPage: FC = (_props) => {
         return (
           <>
             <div class="py-4 bg-base text-base-content" key={content.title}>
-              <div class="flex flex-row gap-4 justify-start items-center">
+              <div class="flex flex-col md:flex-row gap-2 md:gap-4 justify-start md:items-center">
                 <small class="text-base-content/60">
                   {Intl.DateTimeFormat(undefined, {
                     dateStyle: "full",
@@ -80,11 +47,11 @@ export const IndexPage: FC = (_props) => {
                 </small>
               </div>
 
-              <h1 class="flex-1 font-bold text-2xl my-2 hover:text-base-content/90">
+              <h1 class="flex-1 font-bold text-2xl my-4 md:my-2 hover:text-base-content/90">
                 <a href="/">{content.title}</a>
               </h1>
 
-              <div class="line-clamp-3 text-justify text-base-content/90">
+              <div class="line-clamp-5 md:line-clamp-3 text-base-content/90">
                 {content.content}
               </div>
 

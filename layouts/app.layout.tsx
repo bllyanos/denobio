@@ -11,10 +11,14 @@ export const AppLayout: FC = (props) => {
             <small>billy's directory</small>
           </div>
 
-          <div class="flex-none flex flex-row gap-4">
+          <div class="flex-none flex flex-row gap-2">
             <a href="/">index</a>
-            <a href="/about">about</a>
-            <a href="/about">contact</a>
+            <a target="_blank" href="https://github.com/bllyanos">
+              github
+            </a>
+            <a target="_blank" href="https://threads.com/bllyanos">
+              threads
+            </a>
           </div>
         </div>
       </div>
