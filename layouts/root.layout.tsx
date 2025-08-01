@@ -9,7 +9,7 @@ export const RootLayout: FC = (props) => {
         <title>Bllyanos</title>
         <link rel="stylesheet" href="/style.css" />
       </head>
-      <body>
+      <body class="font-mono">
         ${props.children}
       </body>
     </html>

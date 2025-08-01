@@ -1,6 +1,7 @@
 {
   "imports": {
     "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.11",
+    "daisyui": "npm:daisyui@^5.0.50",
     "hono": "jsr:@hono/hono@^4.8.10",
     "tailwindcss": "npm:tailwindcss@^4.1.11"
   },
@@ -11,7 +12,8 @@
     "tailwind": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css",
     "build": "deno task tailwind",
     "dev": "deno run --allow-net --allow-read --watch main.tsx",
-    "start": "deno run --allow-net --allow-read main.tsx"
+    "start": "deno run --allow-net --allow-read main.tsx",
+    "dev:all": "deno run -A npm:concurrently 'deno task dev' 'deno task tailwind:watch'"
   },
   "compilerOptions": {
     "jsx": "precompile",
