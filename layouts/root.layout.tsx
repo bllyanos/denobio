@@ -6,10 +6,12 @@ export const RootLayout: FC = (props) => {
     <!DOCTYPE html>
     <html lang="en" data-theme="black">
       <head>
-        <title>Bllyanos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>billy's directory</title>
         <link rel="stylesheet" href="/style.css" />
       </head>
-      <body class="font-mono">
+      <body class="font-mono px-2 md:px-0">
         ${props.children}
       </body>
     </html>

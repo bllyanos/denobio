@@ -10,7 +10,7 @@ interface Content {
 
 const contents: Content[] = [
   {
-    title: "Simple Caching Strategies",
+    title: "simple caching strategies",
     content:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
@@ -21,7 +21,7 @@ const contents: Content[] = [
     hastags: ["test", "test2"],
   },
   {
-    title: "Simple Caching Strategies",
+    title: "simple caching strategies",
     content:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
@@ -32,7 +32,7 @@ const contents: Content[] = [
     hastags: ["test", "test2"],
   },
   {
-    title: "Simple Caching Strategies",
+    title: "simple caching strategies",
     content:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
@@ -43,7 +43,7 @@ const contents: Content[] = [
     hastags: ["test", "test2"],
   },
   {
-    title: "Simple Caching Strategies",
+    title: "simple caching strategies",
     content:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
@@ -59,12 +59,9 @@ export const IndexPage: FC = (_props) => {
   return (
     <AppLayout>
       <p class="py-8 bg-base text-base-content text-justify">
-        lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit
-        amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur
-        adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua
+        hi, and welcome to <b>billy's directory</b>. this is where i share all
+        my articles on engineering tips, my experiments, and even some random
+        thoughts. i hope you find something you like. ッ
       </p>
 
       {contents.map((content: Content, index: number, arr: Content[]) => {
@@ -72,13 +69,13 @@ export const IndexPage: FC = (_props) => {
           <>
             <div class="py-4 bg-base text-base-content" key={content.title}>
               <div class="flex flex-row gap-4 justify-start items-center">
-                <small class="text-base-content/70">
+                <small class="text-base-content/60">
                   {Intl.DateTimeFormat(undefined, {
                     dateStyle: "full",
                     timeStyle: "short",
                   }).format(new Date(content.createdAt))}
                 </small>
-                <small class="text-base-content/70">
+                <small class="text-base-content/90">
                   {content.hastags.map((h) => `#${h}`).join(" ")}
                 </small>
               </div>

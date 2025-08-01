@@ -25,7 +25,7 @@ export const AppLayout: FC = (props) => {
         {props.children}
       </div>
 
-      <div class="divider mt-20"></div>
+      <div class="divider mt-6 md:mt-20"></div>
 
       <footer>
         <div class="py-8 container max-w-screen-md mx-auto">
