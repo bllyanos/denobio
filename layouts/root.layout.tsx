@@ -4,7 +4,7 @@ import { html } from "hono/html";
 export const RootLayout: FC = (props) => {
   return html`
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" data-theme="black">
       <head>
         <title>Bllyanos</title>
         <link rel="stylesheet" href="/style.css" />
