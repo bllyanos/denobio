@@ -5,15 +5,12 @@ import { Content, getContents } from "../repositories/content.repo.ts";
 const contentsMap: Map<string, Content> = getContents();
 
 export const IndexPage: FC = (_props) => {
+  const description =
+    "hi, and welcome to billy's directory. this is where i share all my articles on engineering tips, my experiments, and even some random thoughts. i hope you find something you like. ッ";
   const contents = Array.from(contentsMap.values()).reverse();
   return (
-    <AppLayout>
-      <p class="py-8 bg-base text-base-content">
-        hi, and welcome to{" "}
-        <b>billy's directory</b>. this is where i share all my articles on
-        engineering tips, my experiments, and even some random thoughts. i hope
-        you find something you like. ッ
-      </p>
+    <AppLayout description={description}>
+      <p class="py-8 bg-base text-base-content">{description}</p>
 
       {contents.map((content: Content, index: number, arr: Content[]) => {
         return (

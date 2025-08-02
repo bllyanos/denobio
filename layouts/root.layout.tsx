@@ -2,12 +2,14 @@ import { FC } from "hono/jsx";
 import { html } from "hono/html";
 
 export const RootLayout: FC = (props) => {
+  const description = props.description ?? "billy's directory";
   return html`
     <!DOCTYPE html>
     <html lang="en" data-theme="black">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="${description}" />
         <title>billy's directory</title>
         <link rel="stylesheet" href="/style.css" />
         <!-- For Android Chrome -->

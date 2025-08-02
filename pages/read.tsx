@@ -7,7 +7,7 @@ export const ReadPage: FC<{ content: Content; sanitizedContent: string }> = ({
   sanitizedContent,
 }) => {
   return (
-    <AppLayout additionalTitle="/read">
+    <AppLayout additionalTitle="/read" description={content.short}>
       <div class="py-4 flex flex-row gap-2">
         {content.tags.map((h) => <small key={h}>#{h}</small>)}
       </div>
