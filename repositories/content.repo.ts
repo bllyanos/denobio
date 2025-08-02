@@ -26,7 +26,7 @@ async function loadContents() {
   for await (const entry of contentsIter) {
     if (entry.isFile && entry.name.endsWith(".md")) {
       const entryContent = await Deno.readTextFile(
-        path.join(contentsDir, entry.name),
+        path.join(contentsDir, entry.name)
       );
       rawContents.push(entryContent);
     }
@@ -40,7 +40,7 @@ async function loadContents() {
   parsedContents = parsedContents.sort((a, b) => {
     const aDate = new Date(a.createdAt);
     const bDate = new Date(b.createdAt);
-    return bDate.getTime() - aDate.getTime();
+    return aDate.getTime() - bDate.getTime();
   });
 
   const contentMap = new Map<string, Content>();
