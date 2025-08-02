@@ -15,7 +15,7 @@ export const ReadPage: FC<{ content: Content; sanitizedContent: string }> = ({
       </div>
       <div class="py-4 bg-base text-base-content flex flex-col">
         <article
-          class="prose prose-sm md:prose-base w-full max-w-none prose-pre:p-0"
+          class="prose prose-sm md:prose-base w-full max-w-none prose-pre:p-0 prose-pre:border-2 prose-pre:border-base-content/10"
           dangerouslySetInnerHTML={{
             __html: sanitizedContent,
           }}
