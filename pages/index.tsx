@@ -1,49 +1,33 @@
 import { FC } from "hono/jsx";
 import { AppLayout } from "../layouts/app.layout.tsx";
+import { Content, getContents } from "../repositories/content.repo.ts";
 
-interface Content {
-  title: string;
-  content: string;
-  createdAt: string;
-  hastags: string[];
-}
-
-const contents: Content[] = [
-  {
-    title: "simple caching strategies",
-    content:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" +
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    createdAt: new Date().toISOString(),
-    hastags: ["test", "test2"],
-  },
-];
+const contentsMap: Map<string, Content> = getContents();
 
 export const IndexPage: FC = (_props) => {
+  const contents = Array.from(contentsMap.values()).reverse();
   return (
     <AppLayout>
       <p class="py-8 bg-base text-base-content">
-        hi, and welcome to <b>billy's directory</b>. this is where i share all
-        my articles on engineering tips, my experiments, and even some random
-        thoughts. i hope you find something you like. ッ
+        hi, and welcome to{" "}
+        <b>billy's directory</b>. this is where i share all my articles on
+        engineering tips, my experiments, and even some random thoughts. i hope
+        you find something you like. ッ
       </p>
 
       {contents.map((content: Content, index: number, arr: Content[]) => {
         return (
           <>
             <div class="py-4 bg-base text-base-content" key={content.title}>
-              <div class="flex flex-col md:flex-row gap-2 md:gap-4 justify-start md:items-center">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 items-center">
                 <small class="text-base-content/60">
                   {Intl.DateTimeFormat(undefined, {
                     dateStyle: "full",
                     timeStyle: "short",
                   }).format(new Date(content.createdAt))}
                 </small>
-                <small class="text-base-content/90">
-                  {content.hastags.map((h) => `#${h}`).join(" ")}
+                <small class="text-base-content/90 text-left sm:text-right">
+                  {content.tags.map((h) => `#${h}`).join(" ")}
                 </small>
               </div>
 
@@ -52,7 +36,7 @@ export const IndexPage: FC = (_props) => {
               </h1>
 
               <div class="line-clamp-5 md:line-clamp-3 text-base-content/90">
-                {content.content}
+                {content.short}
               </div>
 
               <div class="px-4 py-2">

@@ -32,7 +32,7 @@ export const AppLayout: FC = (props) => {
       <div class="divider mt-6 md:mt-20"></div>
 
       <footer>
-        <div class="py-8 container max-w-screen-md mx-auto">
+        <div class="py-8 px-2 container max-w-screen-md mx-auto">
           <div class="flex flex-row gap-4 items-center">
             <small class="text-base-content/70">&copy; 2025 bllyanos</small>
           </div>

@@ -1,5 +1,7 @@
 {
   "imports": {
+    "@std/path": "jsr:@std/path@^1.1.1",
+    "@std/yaml": "jsr:@std/yaml@^1.0.9",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.11",
     "daisyui": "npm:daisyui@^5.0.50",
     "hono": "jsr:@hono/hono@^4.8.10",
