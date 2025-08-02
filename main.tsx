@@ -6,7 +6,6 @@ import { ReadPage } from "./pages/read.tsx";
 import DP from "dompurify";
 import { marked } from "marked";
 import { JSDOM } from "jsdom";
-import * as path from "@std/path";
 import { getHashKey } from "./utils/cache.ts";
 
 const window = new JSDOM("").window;
