@@ -1,13 +1,19 @@
-import { FC } from "hono/jsx";
+import { FC, PropsWithChildren } from "hono/jsx";
 import { RootLayout } from "./root.layout.tsx";
 
-export const AppLayout: FC = (props) => {
+export const AppLayout: FC<PropsWithChildren<{ additionalTitle?: string }>> = (
+  props,
+) => {
+  // const title = `~/bllyanos${props.additionalTitle ?? ""}`;
+  const title = `~/bllyanos`;
   return (
     <RootLayout>
       <div class="bg-base text-base-content">
         <div class="navbar mt-4 px-2 py-4 container max-w-screen-md mx-auto">
           <div class="flex-1 flex flex-col">
-            <a class="text-xl font-bold">~/bllyanos</a>
+            <a href="/" class="text-xl font-bold">
+              {title}
+            </a>
             <small>billy's directory</small>
           </div>
 

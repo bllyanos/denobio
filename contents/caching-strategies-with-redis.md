@@ -163,7 +163,3 @@ Use gzip or zlib if storing large JSON blobs.
 - Combine strategies where appropriate (e.g. cache-aside + TTL).
 
 Effective caching reduces latency, improves scalability, and lowers infrastructure costs—when used correctly.
-
-```
-
-```

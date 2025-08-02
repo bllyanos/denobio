@@ -32,7 +32,7 @@ export const IndexPage: FC = (_props) => {
               </div>
 
               <h1 class="flex-1 font-bold text-2xl my-4 md:my-2 hover:text-base-content/90">
-                <a href="/">{content.title}</a>
+                <a href={`/read/${content.slug}`}>{content.title}</a>
               </h1>
 
               <div class="line-clamp-5 md:line-clamp-3 text-base-content/90">
@@ -41,7 +41,7 @@ export const IndexPage: FC = (_props) => {
 
               <div class="px-4 py-2">
                 <small>
-                  <a href="/">read more →</a>
+                  <a href={`/read/${content.slug}`}>read more →</a>
                 </small>
               </div>
             </div>

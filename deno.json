@@ -3,8 +3,12 @@
     "@std/path": "jsr:@std/path@^1.1.1",
     "@std/yaml": "jsr:@std/yaml@^1.0.9",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.11",
+    "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",
     "daisyui": "npm:daisyui@^5.0.50",
+    "dompurify": "npm:dompurify@^3.2.6",
     "hono": "jsr:@hono/hono@^4.8.10",
+    "jsdom": "npm:jsdom@^26.1.0",
+    "marked": "npm:marked@^16.1.1",
     "tailwindcss": "npm:tailwindcss@^4.1.11"
   },
   "nodeModulesDir": "auto",
@@ -13,7 +17,7 @@
     "tailwind:watch": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css --watch",
     "tailwind": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css",
     "build": "deno task tailwind",
-    "dev": "deno run --allow-net --allow-read --watch main.tsx",
+    "dev": "deno run --allow-net --allow-read --allow-env --watch main.tsx",
     "start": "deno run --allow-net --allow-read main.tsx",
     "dev:all": "deno run -A npm:concurrently 'deno task dev' 'deno task tailwind:watch'"
   },
