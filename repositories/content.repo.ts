@@ -32,10 +32,16 @@ async function loadContents() {
     }
   }
 
-  const parsedContents: Content[] = [];
+  let parsedContents: Content[] = [];
   for (const rawContent of rawContents) {
     parsedContents.push(parseContent(rawContent));
   }
+
+  parsedContents = parsedContents.sort((a, b) => {
+    const aDate = new Date(a.createdAt);
+    const bDate = new Date(b.createdAt);
+    return bDate.getTime() - aDate.getTime();
+  });
 
   const contentMap = new Map<string, Content>();
   for (const content of parsedContents) {
