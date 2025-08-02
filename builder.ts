@@ -1,3 +1,5 @@
+import * as fs from "@std/fs";
+
 const shouldCache = (Deno.env.get("ENABLE_CACHE") ?? "false") === "true";
 
 const textEncoder = new TextEncoder();
@@ -12,6 +14,10 @@ if (shouldCache) {
 
   await Deno.copyFile("public/style.css", `public/style.${hash}.css`);
   await Deno.copyFile("public/favicon.svg", `public/favicon.${hash}.svg`);
+} else {
+  if (await fs.exists("meta/hashkey")) {
+    await Deno.remove("meta/hashkey");
+  }
 }
 
 async function getFileHash(file: Uint8Array<ArrayBuffer>, length = 6) {
