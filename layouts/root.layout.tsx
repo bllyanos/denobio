@@ -10,6 +10,15 @@ export const RootLayout: FC = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>billy's directory</title>
         <link rel="stylesheet" href="/style.css" />
+        <!-- For Android Chrome -->
+        <meta name="theme-color" content="#000" />
+
+        <!-- For iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
       </head>
       <body class="font-mono px-2 md:px-0">
         ${props.children}
