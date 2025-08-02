@@ -6,6 +6,8 @@ import { ReadPage } from "./pages/read.tsx";
 import DP from "dompurify";
 import { marked } from "marked";
 import { JSDOM } from "jsdom";
+import * as path from "@std/path";
+import { getHashKey } from "./utils/cache.ts";
 
 const window = new JSDOM("").window;
 const purify = DP(window);
@@ -34,6 +36,22 @@ app.get("/read/:slug", (c: Context) => {
   );
 });
 
-app.use("/*", serveStatic({ root: "./public" }));
+app.use(
+  "/*",
+  serveStatic({
+    root: "./public",
+    onFound: (filePath, c) => {
+      const hashKey = getHashKey();
+      if (!hashKey) {
+        return;
+      }
+
+      if (filePath.includes(hashKey)) {
+        c.res.headers.set("Cache-Control", "max-age=31536000; immutable");
+        return;
+      }
+    },
+  }),
+);
 
 Deno.serve(app.fetch);

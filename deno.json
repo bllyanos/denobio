@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@std/fs": "jsr:@std/fs@^1.0.19",
     "@std/path": "jsr:@std/path@^1.1.1",
     "@std/yaml": "jsr:@std/yaml@^1.0.9",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.11",
@@ -16,7 +17,7 @@
     "install": "deno install --allow-scripts",
     "tailwind:watch": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css --watch",
     "tailwind": "deno run -A @tailwindcss/cli -i ./styles/app.css -o ./public/style.css",
-    "build": "deno task tailwind",
+    "build": "deno run -A builder.ts",
     "dev": "deno run --allow-net --allow-read --allow-env --watch main.tsx",
     "start": "deno run --allow-net --allow-read main.tsx",
     "dev:all": "deno run -A npm:concurrently 'deno task dev' 'deno task tailwind:watch'"

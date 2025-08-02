@@ -1,8 +1,13 @@
 import { FC } from "hono/jsx";
 import { html } from "hono/html";
+import { asset } from "../utils/cache.ts";
 
 export const RootLayout: FC = (props) => {
   const description = props.description ?? "billy's directory";
+
+  const stylePath = asset("/style.css");
+  const faviconPath = asset("/favicon.svg");
+
   return html`
     <!DOCTYPE html>
     <html lang="en" data-theme="black">
@@ -10,9 +15,13 @@ export const RootLayout: FC = (props) => {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${description}" />
+
         <title>billy's directory</title>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="stylesheet" href="/style.css" />
+        <link rel="icon" type="image/svg+xml" href="${faviconPath}" />
+
+        <!-- assets -->
+        <link rel="stylesheet" href="${stylePath}" />
+
         <!-- For Android Chrome -->
         <meta name="theme-color" content="#000" />
 
