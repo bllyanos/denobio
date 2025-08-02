@@ -8,12 +8,14 @@ export const ReadPage: FC<{ content: Content; sanitizedContent: string }> = ({
 }) => {
   return (
     <AppLayout additionalTitle="/read" description={content.short}>
-      <div class="py-4 flex flex-row gap-2">
-        {content.tags.map((h) => <small key={h}>#{h}</small>)}
+      <div class="py-4 flex flex-row gap-2 flex-wrap">
+        {content.tags.map((h) => (
+          <small key={h}>#{h}</small>
+        ))}
       </div>
       <div class="py-4 bg-base text-base-content flex flex-col">
         <article
-          class="prose prose-sm w-full max-w-none"
+          class="prose prose-sm md:prose-base w-full max-w-none prose-pre:p-0"
           dangerouslySetInnerHTML={{
             __html: sanitizedContent,
           }}

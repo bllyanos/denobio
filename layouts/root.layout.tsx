@@ -31,6 +31,18 @@ export const RootLayout: FC = (props) => {
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
+
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/base16/bright.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/elixir.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/javascript.min.js"></script>
+
+        <script>
+          hljs.highlightAll();
+        </script>
       </head>
       <body class="font-mono px-2 md:px-0">
         ${props.children}
